@@ -71,4 +71,10 @@ and then use this to watch logs of eventing podpod
 ```
 oc logs -n knativetutorial -f <pod-name> -c user-container
 ```
+To delete everything, 
+```
+oc -n knativetutorial delete -f event-source.yaml
+oc -n knativetutorial delete -f event-sink.yaml
+```
+
 
