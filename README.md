@@ -42,3 +42,9 @@ Invoke it using,
 http $SERVICEURL
 ```
 The http command should return a response which has a line similar to **Hi greeter ⇒ '6fee83923a9f' : 1** in the end
+
+To delete the service, 
+```
+oc -n knativetutorial delete services.serving.knative.dev greeter
+```
+
