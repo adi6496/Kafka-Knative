@@ -147,5 +147,20 @@ To test this, lets spin up a producer which sends msgs to our Kafka source. For 
 ```
 bash kafka-producer.sh
 ```
+In the terminal, write json formatted messages :
+```
+{"hello":"world"}
 
+{"Kafka":"Knative}
+```
 
+We can check the logs of our eventing pod to check if the sink has those messages.
+
+First get the pod name
+```
+oc get pods -n knativetutorial
+```
+Use the pod having name eventinghello-XXX to check logs.
+```
+watch oc logs -n knativetutorial -f <pod-name> -c user-container
+```
