@@ -164,3 +164,9 @@ Use the pod having name eventinghello-XXX to check logs.
 ```
 watch oc logs -n knativetutorial -f <pod-name> -c user-container
 ```
+To clean up
+```
+oc delete -n knativetutorial  -f kafka-event-source.yaml
+oc delete -n knativetutorial  -f eventing-hello-sink.yaml
+oc delete -n kafka -f kafka-topic.yaml
+```
