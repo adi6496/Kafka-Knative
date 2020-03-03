@@ -47,4 +47,28 @@ To delete the service,
 ```
 oc -n knativetutorial delete services.serving.knative.dev greeter
 ```
+### 2. Knative Eventing with a CronJob Source 
+Event sources emit out events which can then be recieved by the sink. 
+
+Deploy the Cronjob source, which emits events (data) according to the schedule mentioned.
+
+```
+oc apply -f event-source.yaml -n knativetutorial
+```
+
+Now we create a sink, where we recieve these events.
+```
+oc apply -f event-sink.yaml -n knativetutorial
+```
+
+You can watch the logs on a different terminal. 
+
+To watch logs, get the name of eventing pod using this,
+```
+oc get pods -n knativetutorial
+```
+and then use this to watch logs of eventing podpod
+```
+oc logs -n knativetutorial -f <pod-name> -c user-container
+```
 
