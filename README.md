@@ -129,4 +129,23 @@ releases/download/v0.12.2/kafka-channel.yaml" \
  | oc apply --filename -
  ```
  
- 
+Deploy the Knative Service (sink) 
+```
+oc apply -f eventing-hello-sink.yaml
+```
+Initially this deployment will scale up to 1 pod but as it is not getting any events, Knative will scale it down to zero. Now only when we send the events, this service will spin up. This deployment deosnt actually generate any service but in a real world case this could be anything from spinning up a container to spinning up a URL etc.
+
+We create a Kafka source which links the topic which we created earlier with the sink (eventing hello).
+```
+oc -n knativetutorial apply -f kafka-event-source.yaml
+```
+
+Now we have a Kafka source which connects our topic to our sink. So whenever we recieve any new messages to our Kafka broker, the source will direct it to Knative Service (sink). 
+
+To test this, lets spin up a producer which sends msgs to our Kafka source. For this navigate to the bin                    directory and run
+
+```
+bash kafka-producer.sh
+```
+
+
