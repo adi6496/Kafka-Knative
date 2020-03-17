@@ -3,9 +3,9 @@
 
 ## Prerequisites
 1. Access to openshift cluster
-2. Knative installed on openshift
-3. Knative serving installed
-4. Knative eventing installed
+2. Knative installed on openshift (https://docs.openshift.com/container-platform/4.1/serverless/getting-started-knative-services.html)
+3. Knative serving installed (https://redhat-developer-demos.github.io/knative-tutorial/knative-tutorial-serving/index.html)
+4. Knative eventing installed (https://redhat-developer-demos.github.io/knative-tutorial/knative-tutorial-eventing/index.html)
 
 Create a new project in openshift
 
